@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Current Directory (Docker)",
+            "type": "shell",
+            "command": "contiker make TARGET=native",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+			"label": "DEBUG-Build Current Directory (Local/Dev Container)",
+			"type": "shell",
+			"command": "make TARGET=native DEBUG=1",
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+        {
+            "label": "RUN-Build Current Directory (Local/Dev Container)",
+            "type": "shell",
+            "command": "make TARGET=native",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Current Directory (Clean + Build)",
+            "type": "shell",
+            "command": "make clean && make TARGET=native DEBUG=1",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
